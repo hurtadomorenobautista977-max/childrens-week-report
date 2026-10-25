@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>داشبورد جامع تحلیل هفته ملی کودک | بهمن سبز</title>
+    <title>گزارش تحلیلی هفته ملی کودک | امور سینماها</title>
     
+    <!-- Fonts & Icons -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,13 +17,14 @@
                 extend: {
                     fontFamily: { sans: ['Vazirmatn', 'sans-serif'] },
                     colors: { 
-                        brand: { light: '#4ade80', DEFAULT: '#16a34a', dark: '#14532d' },
+                        brand: { light: '#34d399', DEFAULT: '#059669', dark: '#064e3b' },
                     }
                 }
             }
         }
     </script>
 
+    <!-- Custom Styles -->
     <style>
         body { font-family: 'Vazirmatn', sans-serif; background-color: #f8fafc; overflow-x: hidden; }
         
@@ -33,34 +36,32 @@
         .fade-in-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .fade-in-left.visible { opacity: 1; transform: translateX(0); }
 
-        /* Floating Animations */
+        /* Floating Characters Animations */
         @keyframes float1 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-        @keyframes float2 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+        @keyframes float2 { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(8deg); } }
         .animate-float-1 { animation: float1 4s ease-in-out infinite; }
         .animate-float-2 { animation: float2 5s ease-in-out infinite; }
 
         /* Rotating Dots Background */
         .bg-dots {
             background-image: radial-gradient(rgba(255, 255, 255, 0.25) 2px, transparent 2px);
-            background-size: 40px 40px;
+            background-size: 30px 30px;
         }
         .rotate-slow { animation: rotateBg 120s linear infinite; }
         @keyframes rotateBg { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
         /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #16a34a; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #15803d; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #059669; }
 
-        .glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08); }
-        
-        .hero-bg { background: linear-gradient(135deg, #14532d 0%, #16a34a 100%); }
-        
+        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08); }
+        .hero-bg { background: linear-gradient(135deg, #064e3b 0%, #10b981 100%); }
+
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
         
-        /* Filter Button Active State */
         .filter-btn.active {
             background-color: #10b981;
             color: white;
@@ -70,156 +71,176 @@
 </head>
 <body class="text-slate-800 antialiased">
 
-    <header class="fixed w-full z-50 transition-all duration-300 bg-slate-900/80 backdrop-blur-md shadow-lg" id="navbar">
+    <header class="fixed w-full z-50 transition-all duration-300 bg-emerald-900/90 backdrop-blur shadow-md" id="navbar">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <i class="fa-solid fa-chart-pie text-emerald-400 text-3xl"></i>
+                <i class="fa-solid fa-chart-pie text-emerald-400 text-3xl drop-shadow"></i>
                 <span class="text-xl font-bold text-white tracking-wide">امور سینماها | بهمن سبز</span>
             </div>
             <div>
-                <span class="bg-white/20 text-white text-xs px-3 py-1.5 rounded-full font-medium">گزارش داخلی</span>
+                <span class="bg-white/20 text-white text-xs px-3 py-1.5 rounded-full font-medium backdrop-blur-sm border border-white/10">گزارش داخلی</span>
             </div>
         </div>
     </header>
 
-    <section class="hero-bg min-h-[70vh] flex items-center justify-center text-center px-4 relative pt-20 overflow-hidden" id="overview">
+    <section class="hero-bg min-h-[65vh] flex items-center justify-center text-center px-4 relative pt-20 overflow-hidden" id="overview">
         <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-dots rotate-slow z-0 pointer-events-none"></div>
         
-        <div class="absolute right-[10%] top-[20%] text-6xl md:text-7xl drop-shadow-[0_15px_15px_rgba(0,0,0,0.3)] animate-float-1 opacity-90 z-0 pointer-events-none">🎈</div>
-        <div class="absolute left-[15%] bottom-[35%] text-5xl md:text-7xl drop-shadow-[0_15px_15px_rgba(0,0,0,0.3)] animate-float-2 opacity-80 z-0 pointer-events-none">🍿</div>
-        <div class="absolute right-[20%] bottom-[20%] text-5xl drop-shadow-[0_10px_10px_rgba(0,0,0,0.2)] animate-float-1 opacity-70 z-0 pointer-events-none delay-1000">🧸</div>
-        <div class="absolute left-[8%] top-[30%] text-6xl drop-shadow-[0_10px_10px_rgba(0,0,0,0.2)] animate-float-2 opacity-80 z-0 pointer-events-none delay-700">🎬</div>
+        <!-- Playful Floating Elements -->
+        <div class="absolute right-[10%] top-[20%] text-6xl md:text-7xl drop-shadow-[0_15px_15px_rgba(0,0,0,0.2)] animate-float-1 opacity-90 z-0 pointer-events-none">🎈</div>
+        <div class="absolute left-[15%] bottom-[30%] text-5xl md:text-7xl drop-shadow-[0_15px_15px_rgba(0,0,0,0.2)] animate-float-2 opacity-80 z-0 pointer-events-none">🍿</div>
+        <div class="absolute right-[20%] bottom-[20%] text-5xl drop-shadow-[0_10px_10px_rgba(0,0,0,0.15)] animate-float-1 opacity-70 z-0 pointer-events-none" style="animation-delay: 1s;">🧸</div>
+        <div class="absolute left-[10%] top-[25%] text-6xl drop-shadow-[0_10px_10px_rgba(0,0,0,0.15)] animate-float-2 opacity-80 z-0 pointer-events-none" style="animation-delay: 0.5s;">🎨</div>
 
         <div class="relative z-10 max-w-4xl mx-auto fade-in-up mt-10 visible">
-            <span class="inline-block py-1 px-4 rounded-full bg-white/20 text-white text-sm font-bold mb-6 backdrop-blur-sm border border-white/30 shadow-sm">مهرماه ۱۴۰۲</span>
-            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight drop-shadow-md">تحلیل جامع عملکرد سینماها<br>در هفته ملـی کـودک</h1>
-            <p class="text-lg md:text-xl text-emerald-50 mb-10 leading-relaxed font-light max-w-2xl mx-auto">
-                بررسی میزان مشارکت، امتیازدهی عملکرد، تحلیل موانع اجرایی و ارزیابی بازخوردهای مدیران جهت برنامه‌ریزی رویدادهای آینده.
+            <span class="inline-block py-1 px-4 rounded-full bg-white/20 text-emerald-50 text-sm font-bold mb-6 backdrop-blur-sm border border-white/30 shadow-sm">مهرماه ۱۴۰۲</span>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight drop-shadow-md">داشبورد تحلیلی هفته ملی کودک<br>عملکرد و بازخورد سینماها</h1>
+            <p class="text-lg md:text-xl text-emerald-50 mb-10 leading-relaxed font-light max-w-2xl mx-auto text-justify sm:text-center">
+                بررسی میزان مشارکت سینماها در اقدامات اصلی و تکمیلی، پایش موانع اجرایی و تحلیل نظرات مدیران برای ارتقای تعاملات آینده.
             </p>
             
-            <div class="flex flex-wrap justify-center gap-6 mt-8">
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl text-center w-32 shadow-lg hover:-translate-y-1 transition-transform">
-                    <p class="text-white/70 text-xs mb-1 font-bold">تعداد سینماها</p>
+            <div class="flex justify-center gap-6 mt-4">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl text-center min-w-[120px] shadow-lg">
+                    <p class="text-emerald-100 text-xs mb-1 font-bold">کل سینماهای مشارکت‌کننده</p>
                     <p class="text-4xl font-black text-white" id="stat-total">0</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl text-center w-32 shadow-lg hover:-translate-y-1 transition-transform relative overflow-hidden">
+                <div class="bg-white/10 backdrop-blur-md border border-emerald-400/50 p-4 rounded-2xl text-center min-w-[120px] shadow-lg relative overflow-hidden">
                     <div class="absolute inset-0 bg-emerald-400/20 mix-blend-overlay"></div>
-                    <p class="text-white/70 text-[10px] mb-1 font-bold">متقاضی تماس</p>
-                    <p class="text-4xl font-black text-white" id="stat-calls">0</p>
+                    <p class="text-emerald-100 text-xs mb-1 font-bold">متقاضی تماس و گفتگو</p>
+                    <p class="text-4xl font-black text-white relative z-10" id="call-requested-count-header">0</p>
                 </div>
             </div>
         </div>
         
+        <!-- Wavy Bottom Divider -->
         <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 text-slate-50">
             <svg class="relative block w-full h-[60px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,123.15,189.2,111.42,234.33,102.53,278.14,81.44,321.39,56.44Z" fill="currentColor"></path></svg>
         </div>
     </section>
 
-    <section class="py-20 relative max-w-7xl mx-auto px-6 bg-slate-50" id="section-analytics">
+    <section class="py-16 relative max-w-7xl mx-auto px-6 bg-slate-50" id="section-actions">
         <div class="text-center max-w-3xl mx-auto mb-12 fade-in-up visible">
-            <h2 class="text-3xl font-black text-slate-800 mb-4">آمار تفکیکی اقدامات اجرایی</h2>
-            <p class="text-slate-600 text-lg mb-6">درصد و تعداد مشارکت سینماها در برنامه‌های ابلاغی.</p>
+            <h2 class="text-3xl font-black text-slate-800 mb-4">جزئیات اقدامات اجرایی</h2>
+            <p class="text-slate-600 text-lg mb-6 text-justify sm:text-center">بر اساس دستورالعمل ابلاغی، عملکرد سینماها به دو بخش <strong>اقدامات اصلی</strong> (فضاسازی، بنر، گریمور) و <strong>اقدامات تکمیلی</strong> تقسیم شده است.</p>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-12 mt-4">
-            <!-- Main Actions Chart -->
-            <div class="fade-in-right glass-card p-8 rounded-3xl relative visible border-t-4 border-t-emerald-500 flex flex-col">
-                <div class="absolute -right-6 -top-6 text-5xl drop-shadow-md rotate-12 pointer-events-none">🎯</div>
-                
+        <div class="grid lg:grid-cols-2 gap-10 mt-4">
+            
+            <!-- Main Actions -->
+            <div class="fade-in-right glass-card p-6 md:p-8 rounded-3xl relative visible border-t-4 border-t-emerald-500 flex flex-col">
                 <div class="flex justify-between items-start mb-6 border-b border-slate-100 pb-4">
                     <div>
-                        <h3 class="font-black text-emerald-800 text-2xl flex items-center gap-2">اقدامات اصلی</h3>
-                        <p class="text-slate-500 text-sm mt-1">فضاسازی، بنر، گریمور، کارت تخفیف</p>
+                        <h3 class="font-black text-emerald-800 text-2xl flex items-center gap-2"><i class="fa-solid fa-star text-emerald-500"></i> اقدامات اصلی</h3>
+                        <p class="text-slate-500 text-sm mt-1">اقدامات پایه و مورد انتظار از سینماها</p>
                     </div>
                     <div class="bg-emerald-50 px-4 py-2 rounded-xl text-center border border-emerald-100">
                         <span class="block text-[10px] text-emerald-600 font-bold">مجموع مشارکت</span>
-                        <span class="block text-xl font-black text-emerald-700" id="main-total-percent">0%</span>
-                        <span class="block text-[10px] text-emerald-500 font-bold mt-1" id="main-total-count">(0 سینما)</span>
+                        <span class="block text-2xl font-black text-emerald-700" id="main-total-percent">0%</span>
+                        <span class="block text-xs text-emerald-500 font-bold mt-1" id="main-total-count">(0 سینما)</span>
                     </div>
                 </div>
                 
-                <div id="main-actions-chart" class="space-y-4 flex-1">
+                <details class="group mb-6">
+                    <summary class="cursor-pointer text-sm font-bold text-emerald-600 bg-emerald-50/50 hover:bg-emerald-50 p-3 rounded-lg border border-emerald-100 transition-colors flex justify-between items-center">
+                        مشاهده اسامی تمامی سینماهای مجری اقدامات اصلی
+                        <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="p-3 flex flex-wrap gap-1.5 bg-white border border-emerald-50 border-t-0 rounded-b-lg max-h-40 overflow-y-auto" id="main-cinemas-tags">
+                        <!-- Populated via JS -->
+                    </div>
+                </details>
+
+                <div id="main-actions-chart" class="space-y-3 flex-1 overflow-y-auto pr-2">
                     <!-- Populated via JS -->
                 </div>
             </div>
 
-            <!-- Supp Actions Chart -->
-            <div class="fade-in-left glass-card p-8 rounded-3xl relative visible border-t-4 border-t-blue-500 flex flex-col">
-                <div class="absolute -left-6 -top-6 text-5xl drop-shadow-md -rotate-12 pointer-events-none">🎨</div>
-                
+            <!-- Supp Actions -->
+            <div class="fade-in-left glass-card p-6 md:p-8 rounded-3xl relative visible border-t-4 border-t-blue-500 flex flex-col">
                 <div class="flex justify-between items-start mb-6 border-b border-slate-100 pb-4">
                     <div>
-                        <h3 class="font-black text-blue-800 text-2xl flex items-center gap-2">اقدامات تکمیلی</h3>
-                        <p class="text-slate-500 text-sm mt-1">ابتکارات ویژه، سرگرمی، عروسک‌ها و رویدادهای جانبی</p>
+                        <h3 class="font-black text-blue-800 text-2xl flex items-center gap-2"><i class="fa-solid fa-puzzle-piece text-blue-500"></i> اقدامات تکمیلی</h3>
+                        <p class="text-slate-500 text-sm mt-1">ابتکارات ویژه، سرگرمی‌ها و رویدادهای جانبی</p>
                     </div>
                     <div class="bg-blue-50 px-4 py-2 rounded-xl text-center border border-blue-100">
                         <span class="block text-[10px] text-blue-600 font-bold">مجموع مشارکت</span>
-                        <span class="block text-xl font-black text-blue-700" id="supp-total-percent">0%</span>
-                        <span class="block text-[10px] text-blue-500 font-bold mt-1" id="supp-total-count">(0 سینما)</span>
+                        <span class="block text-2xl font-black text-blue-700" id="supp-total-percent">0%</span>
+                        <span class="block text-xs text-blue-500 font-bold mt-1" id="supp-total-count">(0 سینما)</span>
                     </div>
                 </div>
 
-                <div id="supp-actions-chart" class="space-y-4 flex-1">
+                <details class="group mb-6">
+                    <summary class="cursor-pointer text-sm font-bold text-blue-600 bg-blue-50/50 hover:bg-blue-50 p-3 rounded-lg border border-blue-100 transition-colors flex justify-between items-center">
+                        مشاهده اسامی تمامی سینماهای مجری اقدامات تکمیلی
+                        <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="p-3 flex flex-wrap gap-1.5 bg-white border border-blue-50 border-t-0 rounded-b-lg max-h-40 overflow-y-auto" id="supp-cinemas-tags">
+                        <!-- Populated via JS -->
+                    </div>
+                </details>
+
+                <div id="supp-actions-chart" class="space-y-3 flex-1 overflow-y-auto pr-2 max-h-[350px]">
                     <!-- Populated via JS -->
                 </div>
             </div>
+
         </div>
     </section>
 
-    <section class="py-20 relative max-w-7xl mx-auto px-6 bg-white" id="section-expectations">
+    <section class="py-16 relative max-w-7xl mx-auto px-6 bg-white" id="section-feedback">
+        <div class="absolute right-[5%] bottom-[10%] text-6xl drop-shadow-[0_10px_10px_rgba(0,0,0,0.1)] animate-float-2 opacity-50 pointer-events-none">🚧</div>
+        
         <div class="text-center max-w-3xl mx-auto mb-12 fade-in-up visible">
-            <h2 class="text-3xl font-black text-slate-800 mb-4">چالش‌ها و انتظارات آینده</h2>
-            <p class="text-slate-600 text-lg mb-6">موانع پیش‌رو و تمایل مدیران سینماها به تعاملات ساختاریافته در رویدادهای آتی.</p>
+            <h2 class="text-3xl font-black text-slate-800 mb-4">تحلیل موانع و انتظارات آینده</h2>
+            <p class="text-slate-600 text-lg mb-6">بررسی چالش‌های اجرایی و رویکرد مدیران سینماها به پشتیبانی‌های ستادی در رویدادهای آتی.</p>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-8 mt-4">
-             <!-- Obstacles Chart -->
-             <div class="fade-in-up glass-card p-6 rounded-3xl relative visible border-t-4 border-t-rose-500 bg-slate-50">
-                <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center text-xl mb-4 shadow-sm"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                <h3 class="font-bold text-slate-800 text-lg mb-2">مهم‌ترین موانع اجرایی</h3>
-                <div id="obstacles-chart" class="space-y-4 mt-6"></div>
+        <div class="grid lg:grid-cols-2 gap-10">
+            <!-- Obstacles Chart -->
+            <div class="fade-in-up glass-card p-6 rounded-3xl relative visible border border-slate-100 shadow-lg">
+                <h3 class="font-bold text-slate-800 text-lg mb-2 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-rose-500"></i> مهم‌ترین موانع و چالش‌ها</h3>
+                <p class="text-slate-500 text-xs mb-8">درصد و تعداد سینماهایی که با این محدودیت‌ها مواجه بوده‌اند.</p>
+                <div id="obstacles-chart" class="space-y-4"></div>
             </div>
 
-            <div class="space-y-8">
-                <!-- Ideas Chart -->
-                <div class="fade-in-up glass-card p-6 rounded-3xl relative visible border-t-4 border-t-amber-500 bg-slate-50">
-                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-xl mb-4 shadow-sm"><i class="fa-solid fa-lightbulb"></i></div>
-                    <h3 class="font-bold text-slate-800 text-lg mb-2">تمایل به دریافت ایده و اقلام در آینده</h3>
-                    <div id="ideas-chart" class="space-y-4 mt-4"></div>
+            <div class="space-y-6">
+                <!-- Ideas Feedback -->
+                <div class="fade-in-up glass-card p-5 rounded-2xl relative visible border border-slate-100 shadow-md flex flex-col justify-center" style="transition-delay: 100ms;">
+                    <h3 class="font-bold text-slate-800 text-md mb-4 flex items-center gap-2"><i class="fa-solid fa-lightbulb text-amber-500"></i> تمایل به دریافت ایده‌ها و اقلام در آینده</h3>
+                    <div id="ideas-chart" class="space-y-3"></div>
                 </div>
 
-                <!-- Schools Chart -->
-                <div class="fade-in-up glass-card p-6 rounded-3xl relative visible border-t-4 border-t-indigo-500 bg-slate-50">
-                    <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-xl mb-4 shadow-sm"><i class="fa-solid fa-school"></i></div>
-                    <h3 class="font-bold text-slate-800 text-lg mb-2">نیاز به برنامه‌ریزی ستادی برای جذب مدارس</h3>
-                    <div id="schools-chart" class="space-y-4 mt-4"></div>
+                <!-- Schools Feedback -->
+                <div class="fade-in-up glass-card p-5 rounded-2xl relative visible border border-slate-100 shadow-md flex flex-col justify-center" style="transition-delay: 200ms;">
+                    <h3 class="font-bold text-slate-800 text-md mb-4 flex items-center gap-2"><i class="fa-solid fa-school text-indigo-500"></i> نیاز به برنامه متمرکز تعامل با مدارس</h3>
+                    <div id="schools-chart" class="space-y-3"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-slate-50 relative overflow-hidden" id="section-profiles">
-        <div class="absolute left-[5%] top-[5%] text-7xl drop-shadow-[0_15px_15px_rgba(0,0,0,0.05)] animate-float-1 opacity-40 pointer-events-none">🏛️</div>
+    <section class="py-20 bg-slate-50 relative overflow-hidden border-t border-slate-200" id="section-profiles">
+        <div class="absolute left-[3%] top-[10%] text-7xl drop-shadow-[0_15px_15px_rgba(0,0,0,0.05)] animate-float-1 opacity-40 pointer-events-none">🏛️</div>
         
         <div class="max-w-6xl mx-auto px-6 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-12 fade-in-up visible">
-                <h2 class="text-3xl font-black text-slate-800 mb-4">پروفایل و رتبه‌بندی سینماها</h2>
-                <p class="text-slate-600 text-lg mb-6">سینماها بر اساس حجم فعالیت در اقدامات اصلی و تکمیلی امتیازدهی (از ۱۰۰) و مرتب شده‌اند.</p>
+                <h2 class="text-3xl font-black text-slate-800 mb-4">پروفایل اختصاصی سینماها</h2>
+                <p class="text-slate-600 text-lg mb-6">بررسی دقیق عملکرد، موانع، و دیدگاه‌های ثبت شده توسط مدیران. سینماها بر اساس حجم فعالیت‌ها (امتیاز) مرتب شده‌اند.</p>
             </div>
             
-            <div class="fade-in-up visible">
-                <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+            <div class="fade-in-up visible glass-card p-6 md:p-8 rounded-3xl">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
                     <div class="flex gap-2">
                         <button id="filter-all" class="filter-btn active px-4 py-2 rounded-xl text-sm font-bold border border-slate-200 text-slate-600 transition-colors">همه سینماها</button>
                         <button id="filter-call" class="filter-btn px-4 py-2 rounded-xl text-sm font-bold border border-slate-200 text-slate-600 transition-colors">فقط متقاضیان تماس</button>
                     </div>
-                    <div class="relative w-full sm:w-80">
-                        <input type="text" id="cinema-search" placeholder="جستجوی نام سینما..." class="w-full bg-slate-50 border border-slate-200 rounded-full py-2.5 px-5 pl-12 focus:ring-2 focus:ring-emerald-500 text-sm outline-none transition-shadow shadow-inner">
+                    <div class="relative w-full md:w-80">
+                        <input type="text" id="cinema-search" placeholder="جستجوی نام سینما..." class="w-full bg-slate-50 border border-slate-200 rounded-full py-3 px-5 pl-12 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm outline-none transition-all shadow-inner">
                         <i class="fa-solid fa-search absolute left-5 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
                     </div>
                 </div>
                 
-                <div id="cinemas-list" class="space-y-4 max-h-[800px] overflow-y-auto pr-2 pb-4">
+                <div id="cinemas-list" class="space-y-3 max-h-[700px] overflow-y-auto pr-2 pb-4">
                     <!-- Populated via JS -->
                 </div>
             </div>
@@ -227,188 +248,244 @@
     </section>
 
     <script>
-        // RAW DATA
-        const rawData = `استقلال	چاپ و نصب بنر طراحی‌شده ویژه روز کودک	-	-	محدودیت بودجه, اطلاع‌رسانی ناکافی یا فرصت محدود برای اطلاع‌رسانی به مخاطبان	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	-	0	-
-آفریقا	چاپ و نصب بنر طراحی‌شده ویژه روز کودک	-	-	محدودیت بودجه	-	ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت و تشخیص خود سینما طراحی و اجرا کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	-	0	-
-کیهان ابادان	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان	-	-	محدودیت بودجه, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	0	-
-سینما اکسین اهواز	چاپ و نصب بنر طراحی‌شده ویژه روز کودک	-	-	محدودیت بودجه, اطلاع‌رسانی ناکافی یا فرصت محدود برای اطلاع‌رسانی به مخاطبان	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	-	0	-
-پردیس سینمایی مهر مادر دزفول	چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی	-	-	سایر موارد	عدم همکاری وصدور مجوز ادره آموزش و پرورش بابت برگزاری جشن مدارس	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	مکاتبه به ادارات ذی ربط باالخص آموزش و پرورش شهرستان بابت صدور حضور دانش آموزان و مدارس	1	-
-سینما بهمن اهواز	استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان	-	-	محدودیت بودجه	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	سلام. در صورتی که جهت هر چه بهتر برگزار کردن برنامه های اینچنینی، به فراخور شرایط هر سینما بودجه ای در نظر گرفته بشود، بسیار مقرون به فایده خواهد بود.	1	-
-ساحل اهواز	فضاسازی کودکانه سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی	-	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	-	0	-
-پردیس سینمایی مهر سبزوار	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	بازی و آشنایی با ادوات موسیقی	-	کمبود نیروی انسانی, محدودیت فضای فیزیکی سینما	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	متاسفانه فایل های جشن روز ملی کودکان به صورت فیلم می باشد و امکان ارسال از این طریق نیست.	1	-
-مهر نایسر	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان	-	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	1	-
-مهر شاهد تهران	فضاسازی کودکانه سینما, استقرار گریمور در سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	تن پوش عروسکی	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	1	-
-بهمن تهران	استقرار گریمور در سینما, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت بودجه, اطلاع‌رسانی ناکافی یا فرصت محدود برای اطلاع‌رسانی به مخاطبان	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	در حال حاضر، نیازی به دریافت برنامه پیشنهادی در این زمینه نداریم.	-	0	-
-بهمن ملایر	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت بودجه, محدودیت فضای فیزیکی سینما	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	هماهنگی همه جانبه از یک ماه قبل تمام زنجیره پخش، تبلیغات تلوزیونی زیاد، طراحی هفتگی هر موضوع، در اختیار گذاشتن بودجه کافی نزد مجری اصلی برنامه	1	-
-سینما افریقا مشهد	چاپ و نصب بنر طراحی‌شده ویژه روز کودک	-	-	محدودیت بودجه	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	-	0	-
-بهمن بهشهر	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	اهدا بادکنک به کودکان و برگزاری جنگ شادی	-	محدودیت بودجه, محدودیت فضای فیزیکی سینما	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	تعیین بودجه برای اجرای برنامه های مناسبتی، اجرای برنامه متناسب با ظرفیت شهر، رسیدن اقلام تبلیغاتی فیزیکی و مجازی در زمان مناسب	0	-
-سپیدرود رشت	فضاسازی کودکانه سینما, استقرار گریمور در سینما, دعوت از شخصیت‌های محبوب کودک در استان, سایر موارد	با هماهنگی بیشتر مثل سالهای قبل بهتر میشود بهره برداری کرد	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	-	0	-
-پردیس سینمایی مهر همافران	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	کمبود نیروی انسانی, محدودیت فضای فیزیکی سینما	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	ممنون میشم طرح های مورد نظر از یک هفته قبل به مدیران ابلاغ شود جهت برنامه ریزی بهتر	0	-
-بهمن آمل	سایر موارد	با توجه به احداث مغازه وتعمیرات مقدور نبود	-	سایر موارد	با توجه به احداث مغازه وتعمیرات	ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت و تشخیص خود سینما طراحی و اجرا کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	تعاملات وبرنامه ریزی مناسبت با ریاست آموزش و پرورش شهرستان جهت جذب اکران دانش آموزی	0	-
-سپهر ساری	تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	برگزاری جشنواره فیلم کودک و جذب قریب به ۲۰۰۰ مخاطب	-	محدودیت بودجه, محدودیت فضای فیزیکی سینما	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	0	-
-سینما آزادی بیحار	استقرار گریمور در سینما, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, سایر موارد	برگزاری مسابقه، تن پوشهای عروسکی	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	1	-
-فرهنگ میمه	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	0	-
-پردیس سینمایی ساحل	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان »	-	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	در حال حاضر، نیازی به دریافت برنامه پیشنهادی در این زمینه نداریم.	-	0	-
-29 بهمن	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	استفاده از ظرفیت تن پوش عروسکی	-	کمبود نیروی انسانی, سایر موارد	نبود پارکینگ و محل استقرار اتوبوس مدارس	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	فایل ها به جهت حجم بالا قبلا به روابط عمومی ارسال شده	1	-
-قدس	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	کمبود نیروی انسانی, سایر موارد	نبود پارکیینگ و قرار گرفتن سینما در منطقه پرترافیک شهر	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	فایل ها به مرور به روابط عمومی ارسال شده	1	-
-بهار	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک	-	-	کمبود نیروی انسانی, سایر موارد	با توجه به شرایط فعلی کشور ، امکان حضور مدارس دشوار بود	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	اطلاع رسانی اگر بصورت گسترده تر انجام شود استقبال بسیار بهتری خواهد شد	1	-
-مهر شاهرود	فضاسازی کودکانه سینما, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات, دشواری هماهنگی با گروه‌ها و مجموعه‌های محلی	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	1	-
-22 بهمن گرگان	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی	-	-	کمبود نیروی انسانی, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	1	-
-سینما بهمن بیرجند	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	تن پوش یوز	-	کمبود نیروی انسانی, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	جذب مدارس ودانش آموزان را طی نامه مکاتبه شده...	1	-
-مهر گنبد	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان	-	-	محدودیت بودجه, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	ارسال به هنگام هدایا، زمان بندی دقیق تر	0	-
-سینما بهمن زنجان	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	-	1	-
-پردیس سینمایی هویزه	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	دشواری هماهنگی با گروه‌ها و مجموعه‌های محلی, اطلاع‌رسانی ناکافی یا فرصت محدود برای اطلاع‌رسانی به مخاطبان	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	0	-
-سینما ایران ارومیه	فضاسازی کودکانه سینما, استقرار گریمور در سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت بودجه, محدودیت فضای فیزیکی سینما	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	0	-
-عصر جدید گرگان	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات, سایر موارد	محدودیت در صدور مجوزات	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	حداقل یک ماه قبل آیین نامه برگزاری را اعلام نمایند	1	-
-استقلال خرم آباد	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات, اطلاع‌رسانی ناکافی یا فرصت محدود برای اطلاع‌رسانی به مخاطبان	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	-	0	-
-شیراز	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان	-	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	1	-
-سینما فلسطین همدان	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما	-	-	محدودیت بودجه, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	-	1	-
-پردیس سینمایی بهمن سنندج	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت بودجه, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات	-	ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت و تشخیص خود سینما طراحی و اجرا کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	-	1	-
-سپاهان اصفهان	استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک	-	-	محدودیت بودجه	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	اگه متریال زودتر بدستمون برسه خیلی بهتره	0	-
-آزادی کرمانشاه	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	اجرای اینگونه برنامه ها در مرحله اول نیازمند حضور پرسنل کافی است...	0	-
-فلسطین بروجرد	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	-	0	-
-نخل	سایر موارد	دعوت از اموزشگاه برای اکران سفینه نجات	-	کمبود نیروی انسانی, سایر موارد	نبود کولر و تهویه مناسب	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	نبود کولر در سینما نخل اصلی ترین عامل اجرا نشدن است.	1	-
-پردیس مهر قدس همدان	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	کمبود نیروی انسانی, محدودیت فضای فیزیکی سینما	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	1	-
-هجرت کرج	فضاسازی کودکانه سینما, استقرار گریمور در سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت بودجه, سایر موارد	عدم مجوز برگزاری اردو به مدارس	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	0	-
-بهمن قزوین	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک	-	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	خداقوت به تیم خوب و حرفه ای معاونت راهبری	0	-
-سینما مهر گلدشت	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک	-	-	محدودیت بودجه, کمبود نیروی انسانی	-	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	0	-
-فرهنگ فولادشهر	دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان	-	-	محدودیت بودجه, کمبود نیروی انسانی	-	ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت و تشخیص خود سینما طراحی و اجرا کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	-	0	-`;
+        // RAW DATA FROM PROMPT
+        const rawData = `استقلال	چاپ و نصب بنر طراحی‌شده ویژه روز کودک			محدودیت بودجه, اطلاع‌رسانی ناکافی یا فرصت محدود برای اطلاع‌رسانی به مخاطبان		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		0	
+آفریقا	چاپ و نصب بنر طراحی‌شده ویژه روز کودک			محدودیت بودجه		ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت و تشخیص خود سینما طراحی و اجرا کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		0	
+کیهان ابادان	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان			محدودیت بودجه, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		0	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ5jzSDn2tT9Ea4%2f5wIKjW1VQXgkgM0B71TiIh7KYGYKIgzwP54ca37HucrL3KlP4vh09aqyxyD5J%2f%2fIuKnLLnDXsy2Sv6BpX2c%3d
+سینما اکسین اهواز	چاپ و نصب بنر طراحی‌شده ویژه روز کودک			محدودیت بودجه, اطلاع‌رسانی ناکافی یا فرصت محدود برای اطلاع‌رسانی به مخاطبان		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		0	
+پردیس سینمایی مهر مادر دزفول	چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی			سایر موارد	عدم همکاری وصدور مجوز ادره آموزش و پرورش بابت برگزاری جشن مدارس	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	مکاتبه به ادارات ذی ربط باالخص آموزش و پرورش شهرستان بابت صدور حضور دانش آموزان و مدارس	1	
+سینما بهمن اهواز	استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان			محدودیت بودجه		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	سلام. در صورتی که جهت هر چه بهتر برگزار کردن برنامه های اینچنینی، به فراخور شرایط هر سینما بودجه ای در نظر گرفته بشود، بسیار مقرون به فایده خواهد بود.	1	
+ساحل اهواز	فضاسازی کودکانه سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی			محدودیت بودجه, کمبود نیروی انسانی		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		0	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ4%2fb4tZs2pCFcOpCwBalPGd%2fz4rKrTUfu1C7QGJNmJUw82UTX2sAh68%2fxWoVC3Ukv109aqyxyD5J%2f%2fIuKnLLnDXsy2Sv6BpX2c%3d
+پردیس سینمایی مهر سبزوار	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	بازی و آشنایی با ادوات موسیقی	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ4jzxiMuLKHVOcJuc4DXYhdc2PZttUnjL8Zuhmlw%2baYaUaGyrLN2MOG%2fxWoVC3Ukv109aqyxyD5J%2f%2fIuKnLLnDXsy2Sv6BpX2c%3d	کمبود نیروی انسانی, محدودیت فضای فیزیکی سینما		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	متاسفانه فایل های جشن روز ملی کودکان به صورت فیلم می باشد و امکان ارسال از این طریق نیست.	1	https://formafzar.com/panel/file?type=file&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ4%2fb4tZs2pCFfde8zMYlz1ogTCIRYqvwskVXnJ%2fKMC83I1KCmbfpfE%2bZlR6YXtyCFWO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+مهر نایسر	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان			محدودیت بودجه, کمبود نیروی انسانی		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		1	
+مهر شاهد تهران	فضاسازی کودکانه سینما, استقرار گریمور در سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	تن پوش عروسکی		محدودیت بودجه, کمبود نیروی انسانی		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		1	
+بهمن تهران	استقرار گریمور در سینما, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, اطلاع‌رسانی ناکافی یا فرصت محدود برای اطلاع‌رسانی به مخاطبان		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	در حال حاضر، نیازی به دریافت برنامه پیشنهادی در این زمینه نداریم.		0	
+بهمن ملایر	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, محدودیت فضای فیزیکی سینما		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	هماهنگی همه جانبه از یک ماه قبل تمام زنجیره پخش، تبلیغات تلوزیونی زیاد، طراحی هفتگی هر موضوع (تک روز اصلا موفق نخواهد شد) ،ارسال اقلام مرتبط، واز همه مهم تره در اختیار گذاشتن بودجه کافی نزد مجری اصلی برنامه ،در پایان تشویق کارمندان فعال در طرح جهت پیروزی در طرح های آتی	1	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ7X8KnE5FG0g4f%2bc7RR4nJ%2fAc8WUUf0CCAyeh4XXhaPxXZVL4nKlzloLsJ027RyCDSO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+سینما افریقا مشهد	چاپ و نصب بنر طراحی‌شده ویژه روز کودک			محدودیت بودجه		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		0	
+بهمن بهشهر	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	"اهدا بادکنک به کودکان
+برگزاری جنگ شادی با اجرای عمو فیتیله ها"	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ4sH7EA4Ub4sG6ndo8Hdw3TeVB3ck57Im3L%2f2n32co7bkaYvDxXDDJdLsJ027RyCDSO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d	محدودیت بودجه, محدودیت فضای فیزیکی سینما		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	"۱_ تعیین بودجه برای اجرای برنامه های مناسبتی
+۲_ اجرای برنامه متناسب با ظرفیت شهر و خصوصا درجه سینماها انجام بشه
+۳_ رسیدن اقلام تبلیغاتی فیزیکی و مجازی در زمان مناسب(حداقل یک هفته قبل مناسبت)"	0	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ6p1y6C81H%2fpgg%2bLZIlbJeeSXnHXf13yd6CBjcvMXBdND0KMsMDF0K4LsJ027RyCDSO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+سپیدرود رشت	فضاسازی کودکانه سینما, استقرار گریمور در سینما, دعوت از شخصیت‌های محبوب کودک در استان, سایر موارد	با هماهنگی بیشتر مثل سالهای قبل بهتر میشود بهره برداری کرد		محدودیت بودجه, کمبود نیروی انسانی		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		0	
+پردیس سینمایی مهر همافران	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, طراحی فضای عکاسی و یادگاری ویژه کودک			کمبود نیروی انسانی, محدودیت فضای فیزیکی سینما		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	ممنون میشم طرح های مورد نظر از یک هفته قبل به مدیران ابلاغ شود جهت برنامه ریزی بهتر	0	https://formafzar.com/panel/file?type=file&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ5jzSDn2tT9ESmAZ27hB2N9cLogSB5pCfUK7p82QFDdQSc5In4Pbsuxyvag205MPjWO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+بهمن آمل	سایر موارد	با توجه به احداث مغازه وتعمیرات، انجام اقدامات لازم در هفته ملی کودک مقدور نبود		سایر موارد	با توجه به احداث مغازه وتعمیرات، انجام اقدامات لازم در هفته ملی کودک مقدور نبود	ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت و تشخیص خود سینما طراحی و اجرا کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	تعاملات وبرنامه ریزی مناسبت با ریاست آموزش و پرورش شهرستان جهت جذب اکران دانش آموزی	0	
+سپهر ساری	تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	"برگزاری جشنواره فیلم کودک 
+و جذب قریب به ۲۰۰۰ مخاطب"		محدودیت بودجه, محدودیت فضای فیزیکی سینما		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		0	
+سینما آزادی بیحار	استقرار گریمور در سینما, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, سایر موارد	برگزاری مسابقه، تن پوشهای عروسکی		محدودیت بودجه, کمبود نیروی انسانی		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		1	
+فرهنگ میمه	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, کمبود نیروی انسانی		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		0	https://formafzar.com/panel/file?type=file&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ7JUVNqz8OGWTLmVtzOOWzRfI97nRGUKo9wF2%2f4gs073a4TOMcDbKycP8Y0rXgHoEuO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+پردیس سینمایی ساحل	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان »			محدودیت بودجه, کمبود نیروی انسانی		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	در حال حاضر، نیازی به دریافت برنامه پیشنهادی در این زمینه نداریم.		0	
+29 بهمن	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	استفاده از ظرفیت تن پوش عروسکی		کمبود نیروی انسانی, سایر موارد	نبود پارکینگ و محل استقرار اتوبوس مدارس	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	فایل ها به جهت حجم بالا قبلا به روابط عمومی ارسال شده و در پیج موسسه پخش شده است.	1	
+قدس	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک			کمبود نیروی انسانی, سایر موارد	نبود پارکیینگ و قرار گرفتن سینما در منطقه پرترافیک شهر که مدارس و گروه های دانش آموزی رغبت چندانی برای حضور نشان نمی دهند.	بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	فایل ها به مرور به روابط عمومی ارسال شده و در پیج اموسسه پخش شده است	1	
+بهار	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک			کمبود نیروی انسانی, سایر موارد	با توجه به شرایط فعلی کشور ، امکان حضور مدارس دشوار بود	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	اطلاع رسانی اگر بصورت گسترده تر انجام شود استقبال بسیار بهتری خواهد شد	1	
+مهر شاهرود	فضاسازی کودکانه سینما, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات, دشواری هماهنگی با گروه‌ها و مجموعه‌های محلی		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		1	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ7nfbFJ99vxU8%2bRO7k9BOu%2bFO6iIh8GXykFAkzF5Vf%2fqNuAmBWgvxXBLsJ027RyCDSO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+22 بهمن گرگان	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی			کمبود نیروی انسانی, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		1	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ6Drtx2tnw2KYs9zgh7ogWcS2iBLu1WMSTgE22MaM%2fj3885oaMlS%2biZLsJ027RyCDSO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+سینما بهمن بیرجند	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک, سایر موارد	"تن پوش یوز (عروسک یوز ) در جمع کودکان سانس های سفینه نجات  در ورودی سینما ولابی سینما 
+عکس کودکان با عروسک یوز در سینما"	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ5xjQTdoxLMFvwhTLkEfsasPWqLmKGnmn8jxVxY55Oq6OncutiO2nM4LsJ027RyCDSO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d	کمبود نیروی انسانی, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	جذب مدارس ودانش آموزان را طی نامه به مدیر کل آموزش و پرورش استان ورئیس آموزش و پرورش شهرستان مکاتبه شده ودر حال اجرای برنامه های دانش آموزی با توجه به ظرفیت سینما وعدم پارکینگ مناسب در محدوده سینما این اتفاق در حال انجام است دو سالمه یا چند سالته می تواند کمک بالایی در جذب مخاطب سینما داشته باشد	1	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ7JUVNqz8OGWQfwNt2uvoSzTnt7LqojUXWWXZMF42jzeSSgdc%2bVmURmLsJ027RyCDSO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+مهر گنبد	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان			محدودیت بودجه, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	"1-ارسال به هنگام هدایا 
+2-زمان بندی دقیق تر و به هنگام 
+3-محدودیت بودجه"	0	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ6Drtx2tnw2KcdGv1Dfz5fd9L9gWaAxqNZj0iDMzOVTNJg0uxYMVlctLsJ027RyCDSO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+سینما بهمن زنجان	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, کمبود نیروی انسانی		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		1	
+پردیس سینمایی هویزه	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, طراحی فضای عکاسی و یادگاری ویژه کودک			دشواری هماهنگی با گروه‌ها و مجموعه‌های محلی, اطلاع‌رسانی ناکافی یا فرصت محدود برای اطلاع‌رسانی به مخاطبان		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		0	
+سینما ایران ارومیه	فضاسازی کودکانه سینما, استقرار گریمور در سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, محدودیت فضای فیزیکی سینما		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		0	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ6p1y6C81H%2fptRFf3HT7PjPFS8bQezTnVs0g1k5HayqIzuzmfbXCTh6LsJ027RyCDSO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+پردیس سینمایی مهر ارومیه	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, محدودیت فضای فیزیکی سینما		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		0	https://formafzar.com/panel/file?type=file&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ70WYggQa5fFoYspqWa1LnlMZODr3DKCgioGQi%2b%2bI5KoOvMIloPhqTbGapbr%2bidOYCO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+عصر جدید گرگان	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات, سایر موارد	محدودیت در صدور مجوزات و بودجه برای برگزاری و همزمان شدن با عدم صدور مجوز بیمه دانش آموزی مدارس	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	حداقل یک ماه قبل آیین نامه برگزاری را اعلام نمایند تا برنامه ریزی بهتری داشته باشیم	1	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ4eywJ7jbFnCIe3uUdTPQMMC4U%2f9Mzat5aRxL4cv8BEzAloC4RZ4vQ%2b%2fxWoVC3Ukv109aqyxyD5J%2f%2fIuKnLLnDXsy2Sv6BpX2c%3d
+استقلال خرم آباد	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات, اطلاع‌رسانی ناکافی یا فرصت محدود برای اطلاع‌رسانی به مخاطبان		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		0	https://formafzar.com/panel/file?type=file&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ4jzxiMuLKHVJUNcGKAuy4wh64UZG2bpHqCx%2bXpFCQw%2fN49CqXDXBEDZlR6YXtyCFWO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+شیراز	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان			محدودیت بودجه, کمبود نیروی انسانی		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		1	https://formafzar.com/panel/file?type=file&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ7nfbFJ99vxU9cxgX1GtcO5hgt8Jb8%2f2F8n1w38Iz1picpQ4AtYP33WP8Y0rXgHoEuO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+ایران شیراز	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی			محدودیت بودجه, کمبود نیروی انسانی		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		1	https://formafzar.com/panel/file?type=file&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ5jzSDn2tT9ESg%2btADF6Sx42n2y9%2f3vGeM2vVbXGK9KMaCHUiY3ukkOP8Y0rXgHoEuO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+سینما فلسطین همدان	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما			محدودیت بودجه, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		1	https://formafzar.com/panel/file?type=file&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ4LrVvBgROkh3R8Tykq%2bnx1FCzbO9tYgtusVUwDxqlMZT3Q4RKlhgliGapbr%2bidOYCO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+پردیس سینمایی مهر سقز	استقرار گریمور در سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی			محدودیت بودجه, کمبود نیروی انسانی		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		1	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ5KodvQskX2AJm2E6xp0WCVja2dWR98W%2b2yDXZG%2fWcSuFLBUA%2bignn6LsJ027RyCDSO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+سپاهان اصفهان	استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک			محدودیت بودجه		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	با توجه به برنامه های پیشبینی شده اگه متریال تبلیغاتی زودتر بدستمون برسه خیلی بهتره	0	
+آزادی کرمانشاه	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, کمبود نیروی انسانی		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	باتوجه به کمبود شدید نیروی انسانی اجرای اینگونه برنامه ها در مرحله اول نیازمند حضور پرسنل کافی و لازم است. با سه پرسنل نمی شود جشن 1000 نفره برگزار کرد ... هرچند به سختی ما انجام دادیم ... و پرسنل ما آسیب جدی دیده و افت فشار پیدا کرد... باتشکر	0	
+فلسطین بروجرد	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, کمبود نیروی انسانی		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		0	https://formafzar.com/panel/file?type=file&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ7eITwea7%2fcNfHRIjxKIAYGkcDVKrmgxvJHHR3jg%2bWmwzISU%2bZ4AYLLZlR6YXtyCFWO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+پردیس سینمایی بهمن سنندج	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, محدودیت زمان برای برنامه‌ریزی و اجرای اقدامات		ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت و تشخیص خود سینما طراحی و اجرا کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		1	
+نخل	سایر موارد	دعوت از اموزشگاه برای اکران سفینه نجات	https://formafzar.com/panel/file?type=file&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ6Drtx2tnw2KTV1BEQvt9yxfqC%2fr64yNSF%2bVgviC8wkx%2f2mP3xnGFeaGapbr%2bidOYCO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d	کمبود نیروی انسانی, سایر موارد	نبود کولر و تهویه مناسب	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	"رفع مشکلات اصلی سینما 
+نبود کولر در سینما نخل اصلی ترین عامل اجرا نشدن برنامه های گوناگون است."	1	
+پردیس مهر قدس همدان	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, طراحی فضای عکاسی و یادگاری ویژه کودک			کمبود نیروی انسانی, محدودیت فضای فیزیکی سینما		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		1	https://formafzar.com/panel/file?type=file&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ70WYggQa5fFj6V1ybW5tluJ9Ffn8vhsMHEIBOfjDdHMeLwDUvHbtlZGapbr%2bidOYCO0WylQwfZz%2bMkZ0ZesTy8TO5AHge0%2fik%3d
+هجرت کرج	فضاسازی کودکانه سینما, استقرار گریمور در سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, سایر موارد	عدم مجوز برگزاری اردو دانش آموزان به مدارس استان البرز	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		0	
+بهمن قزوین	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, کمبود نیروی انسانی		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	خداقوت به تیم خوب و حرفه ای معاونت راهبری	0	
+سینما مهر گلدشت	فضاسازی کودکانه سینما, چاپ و نصب بنر طراحی‌شده ویژه روز کودک			محدودیت بودجه, کمبود نیروی انسانی		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		0	
+فرهنگ فولادشهر	دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان			محدودیت بودجه, کمبود نیروی انسانی		ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت و تشخیص خود سینما طراحی و اجرا کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		0	
+بهار	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, طراحی فضای عکاسی و یادگاری ویژه کودک			کمبود نیروی انسانی, سایر موارد	با توجه به شرایط فعلی کشور و فاصله بسیار نزدیک با یک لوکیشن حساس ، به سختی امکان حضور گروه ها انجام میشود	بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	با توجه به اینکه در این یکی دو ماه گذشته ، دو رقیب در بخش خصوصی با تجهیزات قوی و فاصله کم از سینما بهار شروع به فعالیت کرده اند انتظار می‌رود از لحاظ کیفی نیز سینما بهار بهبود یابد بویژه صندلی ها و تصویر سالن اصلی	1	
+پردیس سینمایی امین تارخ	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, کمبود نیروی انسانی		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	در حال حاضر، نیازی به دریافت برنامه پیشنهادی در این زمینه نداریم.		1	
+بهمن خوراسگان اصفهان	استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, کمبود نیروی انسانی		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.	"اجرای مراسمات جانبی نیازمند بودجه و اطلاع رسانی گسترده می باشد خواهشمند است در برنامه های اتی خصوصا بودجه هم لحاظ گردد
+کلیه فیلم و عکس ها برای خانم شریعت ارسال شد"	0	https://formafzar.com/panel/file?type=picture&v=3&mode=filemanager&file=%7eDB3gfQUls%2bvWznTRFNYDvNLVb69Nz2cRzjzYHbr4WZ4jzxiMuLKHVE8q%2fdr7m1paY4bbpvHVnMPB%2ba7OAjXkEIvk9F%2fJ5BIs%2fxWoVC3Ukv109aqyxyD5J%2f%2fIuKnLLnDXsy2Sv6BpX2c%3d
+سینما بهمن کاشان	فضاسازی کودکانه سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, طراحی فضای عکاسی و یادگاری ویژه کودک			محدودیت بودجه, محدودیت فضای فیزیکی سینما		بله، ابلاغیه و پیشنهادهای ارائه‌شده مفید بود و تمایل داریم این روند در رویدادهای آینده نیز ادامه یابد.	بله، در صورت تناسب برنامه‌های پیشنهادی با ظرفیت و شرایط سینما، از دریافت آن‌ها استقبال می‌کنیم.		1	
+پردیس سینمایی چهارباغ	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک, دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی, دعوت از شخصیت‌های محبوب کودک در استان, طراحی فضای عکاسی و یادگاری ویژه کودک			کمبود نیروی انسانی, اطلاع‌رسانی ناکافی یا فرصت محدود برای اطلاع‌رسانی به مخاطبان		ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت و تشخیص خود سینما طراحی و اجرا کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		1	
+فلسطین اصفهان	فضاسازی کودکانه سینما, استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی			محدودیت بودجه, کمبود نیروی انسانی		ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت و تشخیص خود سینما طراحی و اجرا کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.	"با توجه به موقعیت مکانی سینما فلسطین دعوت از گروه ها مخصوصا گروه های که تجهیزات دارند با مشکل رفت و آمد مواجه هستیم.
+اگه اقلامی مرتبط با کودکان در اختیار سینما قرار بگیره که به بچه ها داده شود جواب دهی خوبی دارد."	0	
+مهتاب اصفهان	استقرار گریمور در سینما, تهیه ویدئوی « گفت‌وگو با کودکان », چاپ و نصب بنر طراحی‌شده ویژه روز کودک			کمبود نیروی انسانی		بله، در صورت تناسب ایده‌ها و اقلام پیشنهادی با ظرفیت و شرایط سینما، از آن‌ها استقبال می‌کنیم.	بله، تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند به جذب مخاطب و بهبود اجرای اکران‌های دانش‌آموزی کمک کند.		0	`;
+
+        // Classification Keywords
+        const mainActionKeywords = ["فضاسازی کودکانه سینما", "چاپ و نصب بنر طراحی‌شده ویژه روز کودک", "استقرار گریمور در سینما"];
+        const suppActionKeywords = ["تهیه ویدئوی « گفت‌وگو با کودکان »", "برگزاری بازی و سرگرمی یا اجرای مسیر استیکری در لابی سینما", "دعوت از گروه‌های اجرای برنامه‌های شاد و کودکانه، مانند جنگ شادی", "دعوت از شخصیت‌های محبوب کودک در استان", "طراحی فضای عکاسی و یادگاری ویژه کودک"];
 
         const cinemas = [];
         const mainActionsDict = {};
         const suppActionsDict = {};
-        const obstaclesDict = {};
-        const futureIdeasDict = {};
-        const schoolsDict = {};
+        const cinemasDoingMain = new Set();
+        const cinemasDoingSupp = new Set();
         
-        let cinemasDoingMain = new Set();
-        let cinemasDoingSupp = new Set();
+        const obstaclesDict = {};
+        const ideasDict = {};
+        const schoolsDict = {};
         let wantCallCount = 0;
 
-        // Definition of Main & Supp from PDF
-        const mainActionKeywords = ["فضاسازی", "بنر", "گریمور", "بلیت", "تخفیف", "نیم‌بها"];
-        
-        // Helper to label responses cleanly
+        // Label Shorteners
         function mapLabel(text) {
-            if(!text) return 'نامشخص';
-            if(text.includes('ابلاغیه و پیشنهادهای ارائه‌شده مفید بود')) return 'موافق با روال فعلی';
-            if(text.includes('در صورت تناسب ایده‌ها') || text.includes('در صورت تناسب برنامه‌های پیشنهادی')) return 'مشروط (نیاز به تناسب)';
-            if(text.includes('ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت')) return 'مستقل (اقدام توسط سینما)';
-            if(text.includes('تدوین برنامه اجرایی مشخص برای تعامل با مدارس می‌تواند')) return 'موافق با برنامه متمرکز';
-            if(text.includes('نیازی به دریافت برنامه')) return 'عدم نیاز به برنامه';
+            if(!text || text === '-') return 'نامشخص / ثبت نشده';
+            if(text.includes('ابلاغیه و پیشنهادهای ارائه‌شده مفید بود')) return 'موافق با روال فعلی ابلاغیه‌ها';
+            if(text.includes('در صورت تناسب ایده‌ها') || text.includes('در صورت تناسب برنامه‌های پیشنهادی')) return 'مشروط (نیاز به تناسب با ظرفیت)';
+            if(text.includes('ترجیح می‌دهیم برنامه‌های مناسبتی را بر اساس ظرفیت')) return 'مستقل (اقدام و طراحی توسط سینما)';
+            if(text.includes('تدوین برنامه اجرایی مشخص برای تعامل با مدارس')) return 'موافق با برنامه متمرکز برای مدارس';
+            if(text.includes('نیازی به دریافت برنامه')) return 'عدم نیاز به برنامه و پشتیبانی';
             return text;
         }
 
-        // Clean & Classify "Other" Actions
-        function getCleanOtherAction(text) {
+        // Action classifier
+        function classifyOtherAction(text) {
             let t = text.trim();
-            if(!t || t === 'سایر موارد' || t.includes("احداث مغازه") || t.includes("تعمیرات") || t.includes("هماهنگی بیشتر")) return null;
+            // Skip unhelpful "other" inputs
+            if(!t || t === "با توجه به احداث مغازه وتعمیرات مقدور نبود" || t.includes("احداث مغازه وتعمیرات") || t.includes("هماهنگی بیشتر")) return null;
             
-            if(t.includes("عروسک") || t.includes("تن پوش") || t.includes("یوز")) return "استفاده از تن‌پوش عروسکی";
-            if(t.includes("بادکنک")) return "اهدا بادکنک";
-            if(t.includes("مسابقه") || t.includes("موسیقی") || t.includes("بازی") || t.includes("جشنواره")) return "برنامه‌های ویژه (موسیقی/مسابقه/جشنواره)";
+            if(t.includes("مسابقه") || t.includes("بازی") || t.includes("موسیقی")) return { name: "برگزاری مسابقه و بازی (ثبت دستی)" };
+            if(t.includes("عروسک") || t.includes("تن پوش") || t.includes("یوز")) return { name: "استفاده از تن‌پوش عروسکی (ثبت دستی)" };
+            if(t.includes("بادکنک")) return { name: "اهدا بادکنک (ثبت دستی)" };
+            if(t.includes("جشنواره") || t.includes("اکران")) return { name: "اکران و جشنواره ویژه (ثبت دستی)" };
             
-            return `سایر: ${t}`;
+            return { name: `سایر: ${t}` };
         }
 
-        // Parse Data
+        // Data Parsing Strategy based on actual rawData columns ignoring file uploads dynamically if needed
+        // Assuming TSV layout:
+        // 0: Name
+        // 1: Actions
+        // 2: Other Actions
+        // 3: File Upload 1
+        // 4: Obstacles
+        // 5: Other Obstacles
+        // 6: Future Ideas
+        // 7: School Plan
+        // 8: Suggestions
+        // 9: Call Request
+        // 10: File Upload 2
         const rows = rawData.split('\n');
         rows.forEach(row => {
             const cols = row.split('\t');
             if (cols.length >= 10 && cols[0].trim() !== '') {
-                const cName = cols[0].trim();
-                const cActsRaw = cols[1].trim();
-                const cActsOther = cols[2] !== '-' ? cols[2].trim() : '';
-                const cObs = cols[4] ? cols[4].trim() : '';
-                const cObsOther = cols[5] !== '-' && cols[5] ? cols[5].trim() : '';
-                const cFuture = cols[6] ? cols[6].trim() : '';
-                const cSchool = cols[7] ? cols[7].trim() : '';
-                const cSugg = cols[8] !== '-' && cols[8] ? cols[8].trim() : '';
-                const cCall = cols[9] ? cols[9].trim() : '0';
+                const c_name = cols[0].trim();
+                const c_acts = cols[1] ? cols[1].trim() : '';
+                const c_acts_other = cols[2] && cols[2] !== '-' ? cols[2].trim() : '';
+                // cols[3] is file upload 1
+                const c_obs = cols[4] ? cols[4].trim() : '';
+                const c_obs_other = cols[5] && cols[5] !== '-' ? cols[5].trim() : '';
+                const c_future = cols[6] ? cols[6].trim() : '';
+                const c_school = cols[7] ? cols[7].trim() : '';
+                const c_sugg = cols[8] && cols[8] !== '-' ? cols[8].trim() : '';
+                const c_call = cols[9] ? cols[9].trim() : '0';
 
                 const cinemaObj = {
-                    name: cName,
+                    name: c_name,
                     mainActs: [],
                     suppActs: [],
-                    obstacles: cObs,
-                    obstaclesOther: cObsOther,
-                    futureSupport: mapLabel(cFuture),
-                    schoolPlan: mapLabel(cSchool),
-                    suggestions: cSugg,
-                    wantsCall: cCall,
+                    obstacles: c_obs,
+                    obstaclesOther: c_obs_other,
+                    futureSupport: c_future,
+                    schoolPlan: c_school,
+                    suggestions: c_sugg.replace(/"/g, ''), // remove wrapping quotes
+                    wantsCall: c_call,
                     score: 0
                 };
 
-                // Split standard actions and categorize
-                cActsRaw.split(',').forEach(a => {
+                // Parse standard actions
+                c_acts.split(',').forEach(a => {
                     let clean = a.trim();
                     if(!clean || clean === 'سایر موارد') return;
                     
-                    let isMain = mainActionKeywords.some(kw => clean.includes(kw));
-                    if(isMain) {
+                    if(mainActionKeywords.includes(clean)) {
                         cinemaObj.mainActs.push(clean);
-                        cinemasDoingMain.add(cName);
-                        mainActionsDict[clean] = mainActionsDict[clean] || [];
-                        mainActionsDict[clean].push(cName);
-                    } else {
+                        cinemasDoingMain.add(c_name);
+                        if(!mainActionsDict[clean]) mainActionsDict[clean] = [];
+                        mainActionsDict[clean].push(c_name);
+                        cinemaObj.score += 30; // Weight for main actions
+                    } else if (suppActionKeywords.includes(clean)) {
                         cinemaObj.suppActs.push(clean);
-                        cinemasDoingSupp.add(cName);
-                        suppActionsDict[clean] = suppActionsDict[clean] || [];
-                        suppActionsDict[clean].push(cName);
+                        cinemasDoingSupp.add(c_name);
+                        if(!suppActionsDict[clean]) suppActionsDict[clean] = [];
+                        suppActionsDict[clean].push(c_name);
+                        cinemaObj.score += 15; // Weight for supp actions
                     }
                 });
 
-                // Process Custom/Other actions -> Convert to Supp
-                if (cActsOther) {
-                    let cleanOther = getCleanOtherAction(cActsOther);
-                    if (cleanOther) {
-                        cinemaObj.suppActs.push(cleanOther);
-                        cinemasDoingSupp.add(cName);
-                        suppActionsDict[cleanOther] = suppActionsDict[cleanOther] || [];
-                        suppActionsDict[cleanOther].push(cName);
-                    }
+                // Parse "Other" actions
+                if(c_acts_other) {
+                    let otherActs = c_acts_other.split('،').flatMap(s => s.split('\n')); 
+                    otherActs.forEach(oa => {
+                        let classified = classifyOtherAction(oa);
+                        if(classified) {
+                            cinemaObj.suppActs.push(classified.name);
+                            cinemasDoingSupp.add(c_name);
+                            if(!suppActionsDict[classified.name]) suppActionsDict[classified.name] = [];
+                            suppActionsDict[classified.name].push(c_name);
+                            cinemaObj.score += 10;
+                        }
+                    });
                 }
-
-                // Calculate Score (20 per main, 10 per supp)
-                let rawScore = (cinemaObj.mainActs.length * 20) + (cinemaObj.suppActs.length * 10);
-                cinemaObj.score = Math.min(100, rawScore); // Cap at 100 if it exceeds
 
                 cinemas.push(cinemaObj);
 
-                // General Stats Tallying
-                if (cCall === '1') wantCallCount++;
+                // Stats Tallying
+                if (c_call === '1') wantCallCount++;
                 
-                cObs.split(',').forEach(o => {
+                c_obs.split(',').forEach(o => {
                     const clean = o.trim();
                     if(clean && clean !== 'سایر موارد') obstaclesDict[clean] = (obstaclesDict[clean] || 0) + 1;
                 });
-                if(cFuture) {
-                    const mapped = mapLabel(cFuture);
-                    futureIdeasDict[mapped] = (futureIdeasDict[mapped] || 0) + 1;
+                
+                if(c_future) {
+                    const mapped = mapLabel(c_future);
+                    ideasDict[mapped] = (ideasDict[mapped] || 0) + 1;
                 }
-                if(cSchool) {
-                    const mapped = mapLabel(cSchool);
+                
+                if(c_school) {
+                    const mapped = mapLabel(c_school);
                     schoolsDict[mapped] = (schoolsDict[mapped] || 0) + 1;
                 }
             }
         });
 
-        // Sort cinemas by score descending
-        cinemas.sort((a, b) => b.score - a.score);
+        // Normalize Scores (max 100)
+        let maxScore = Math.max(...cinemas.map(c => c.score));
+        if(maxScore > 0) {
+            cinemas.forEach(c => {
+                c.score = Math.round((c.score / maxScore) * 100);
+            });
+        }
+        
+        // Sort cinemas by score
+        cinemas.sort((a,b) => b.score - a.score);
 
-        // Header Stats
+        // Header Metrics
         const totalCinemas = cinemas.length;
         document.getElementById('stat-total').innerText = totalCinemas;
-        document.getElementById('stat-calls').innerText = wantCallCount;
+        document.getElementById('call-requested-count-header').innerText = wantCallCount;
 
-        // Action Summaries
-        document.getElementById('main-total-percent').innerText = Math.round((cinemasDoingMain.size / totalCinemas) * 100) + '%';
+        // Action Highlights
         document.getElementById('main-total-count').innerText = `(${cinemasDoingMain.size} سینما)`;
+        document.getElementById('main-total-percent').innerText = Math.round((cinemasDoingMain.size / totalCinemas) * 100) + '%';
         
-        document.getElementById('supp-total-percent').innerText = Math.round((cinemasDoingSupp.size / totalCinemas) * 100) + '%';
         document.getElementById('supp-total-count').innerText = `(${cinemasDoingSupp.size} سینما)`;
+        document.getElementById('supp-total-percent').innerText = Math.round((cinemasDoingSupp.size / totalCinemas) * 100) + '%';
 
-        // RENDER: Complex Action Charts with Accordion
+        // Helper to render lists of names
+        let mainTagsHtml = '';
+        Array.from(cinemasDoingMain).sort().forEach(c => mainTagsHtml += `<span class="bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-md border border-emerald-200">${c}</span>`);
+        document.getElementById('main-cinemas-tags').innerHTML = mainTagsHtml || '<span class="text-slate-400 text-xs">موردی ثبت نشده است.</span>';
+
+        let suppTagsHtml = '';
+        Array.from(cinemasDoingSupp).sort().forEach(c => suppTagsHtml += `<span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-md border border-blue-200">${c}</span>`);
+        document.getElementById('supp-cinemas-tags').innerHTML = suppTagsHtml || '<span class="text-slate-400 text-xs">موردی ثبت نشده است.</span>';
+
+        // Render Action Bar Charts with Accordion details
         function renderActionChart(dict, containerId, colorTheme) {
             const container = document.getElementById(containerId);
             const sorted = Object.entries(dict).sort((a,b) => b[1].length - a[1].length);
@@ -419,27 +496,27 @@
             let bgLight = colorTheme === 'main' ? 'bg-emerald-50' : 'bg-blue-50';
 
             sorted.forEach((item) => {
-                const name = item[0];
+                const name = item[0].length > 50 ? item[0].substring(0,50)+'...' : item[0];
                 const cList = item[1]; 
                 const count = cList.length;
                 const percent = ((count / totalCinemas) * 100).toFixed(1);
                 
                 let chipsHtml = '';
-                cList.sort().forEach(c => chipsHtml += `<span class="${bgLight} ${textColor} text-[10px] px-1.5 py-0.5 rounded border border-white/50 m-0.5 inline-block">${c}</span>`);
+                cList.sort().forEach(c => chipsHtml += `<span class="${bgLight} ${textColor} text-[10px] px-1.5 py-0.5 rounded border border-white/50">${c}</span>`);
 
                 html += `
-                <details class="group bg-white rounded-xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                <details class="group bg-white rounded-xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-md transition-all mb-2">
                     <summary class="cursor-pointer p-3 flex items-center gap-3 bg-white group-open:bg-slate-50 transition-colors">
                         <div class="w-1/3 text-[11px] font-bold text-slate-700 text-right pr-1 leading-tight">${name}</div>
                         <div class="flex-1 bg-slate-100 rounded-full h-4 relative overflow-hidden">
                             <div class="${barColor} h-4 rounded-full absolute right-0 transition-all duration-1000 w-0" data-width="${percent}%"></div>
                         </div>
-                        <div class="w-24 text-left text-xs font-black ${textColor} whitespace-nowrap">${percent}٪ <span class="text-[9px] text-slate-400 font-normal">(${count})</span></div>
+                        <div class="w-24 text-left text-xs font-black ${textColor} whitespace-nowrap">${percent}٪ <span class="text-[10px] text-slate-400 font-normal">(${count})</span></div>
                         <i class="fa-solid fa-chevron-down text-slate-300 text-xs transition-transform group-open:rotate-180"></i>
                     </summary>
-                    <div class="p-3 border-t border-slate-100 bg-slate-50/50">
+                    <div class="p-3 border-t border-slate-100 bg-slate-50/50 flex flex-wrap gap-1">
                         <span class="w-full text-[10px] text-slate-400 font-bold mb-1 block">سینماهای مجری:</span>
-                        <div class="flex flex-wrap">${chipsHtml}</div>
+                        ${chipsHtml}
                     </div>
                 </details>`;
             });
@@ -449,25 +526,25 @@
         renderActionChart(mainActionsDict, 'main-actions-chart', 'main');
         renderActionChart(suppActionsDict, 'supp-actions-chart', 'supp');
 
-        // RENDER: Simple Charts
+        // Render Simple HTML Charts for Feedbacks
         function renderSimpleChart(dict, containerId, colorsArray) {
             const container = document.getElementById(containerId);
             const sorted = Object.entries(dict).sort((a,b) => b[1] - a[1]);
             let html = '';
             
             sorted.forEach((item, idx) => {
-                const name = item[0].length > 45 ? item[0].substring(0,45)+'...' : item[0];
+                const name = item[0].length > 40 ? item[0].substring(0,40)+'...' : item[0];
                 const count = item[1];
                 const percent = ((count / totalCinemas) * 100).toFixed(1);
                 const color = colorsArray[idx % colorsArray.length];
                 
                 html += `
                 <div class="flex items-center gap-3">
-                    <div class="w-1/3 text-[11px] font-bold text-slate-600 text-right pr-1 leading-tight">${name}</div>
-                    <div class="flex-1 bg-slate-200/60 rounded-full h-4 relative overflow-hidden">
+                    <div class="w-1/3 text-xs font-bold text-slate-600 text-right pr-1 leading-tight">${name}</div>
+                    <div class="flex-1 bg-slate-100 rounded-full h-4 relative overflow-hidden">
                         <div class="${color} h-4 rounded-full absolute right-0 transition-all duration-1000 w-0" data-width="${percent}%"></div>
                     </div>
-                    <div class="w-24 text-left text-xs font-black text-slate-700 whitespace-nowrap">${percent}٪ <span class="text-[9px] text-slate-400 font-normal">(${count})</span></div>
+                    <div class="w-24 text-left text-sm font-black text-slate-700 whitespace-nowrap">${percent}٪ <span class="text-[10px] text-slate-400 font-normal">(${count})</span></div>
                 </div>`;
             });
             container.innerHTML = html;
@@ -478,25 +555,24 @@
         const schoolColors = ['bg-indigo-500', 'bg-blue-500', 'bg-sky-400'];
 
         renderSimpleChart(obstaclesDict, 'obstacles-chart', obsColors);
-        renderSimpleChart(futureIdeasDict, 'ideas-chart', ideasColors);
+        renderSimpleChart(ideasDict, 'ideas-chart', ideasColors);
         renderSimpleChart(schoolsDict, 'schools-chart', schoolColors);
 
-        // Animate Bars
+        // Animate Bars Loading
         setTimeout(() => {
             document.querySelectorAll('[data-width]').forEach(bar => {
                 bar.style.width = bar.getAttribute('data-width');
             });
         }, 300);
 
-        // Filter State
-        let currentFilter = 'all'; // 'all' or 'call'
+        // Render Individual Profiles
+        let currentFilter = 'all';
 
-        // RENDER: Profiles
-        function renderProfiles(searchText = '') {
+        function renderProfiles(filterText = '') {
             const list = document.getElementById('cinemas-list');
             list.innerHTML = '';
             
-            let filtered = cinemas.filter(c => c.name.includes(searchText));
+            let filtered = cinemas.filter(c => c.name.includes(filterText));
             if (currentFilter === 'call') {
                 filtered = filtered.filter(c => c.wantsCall === '1');
             }
@@ -507,29 +583,21 @@
             }
 
             filtered.forEach(c => {
-                // Color coding for score
-                let scoreColor = 'text-rose-600 bg-rose-100 border-rose-200';
-                if(c.score >= 70) scoreColor = 'text-emerald-700 bg-emerald-100 border-emerald-200';
-                else if(c.score >= 40) scoreColor = 'text-amber-700 bg-amber-100 border-amber-200';
+                // Determine Score Color
+                let scoreColor = 'text-rose-500 bg-rose-50 border-rose-200';
+                if(c.score > 70) scoreColor = 'text-emerald-600 bg-emerald-50 border-emerald-200';
+                else if(c.score >= 40) scoreColor = 'text-amber-600 bg-amber-50 border-amber-200';
 
-                // Status inside the card
+                // Call status UI
                 const callStatusInside = c.wantsCall === '1'
-                    ? `<span class="bg-emerald-100 text-emerald-700 text-[10px] px-2 py-1 rounded font-bold"><i class="fa-solid fa-phone ml-1"></i>متقاضی تماس</span>`
-                    : `<span class="bg-slate-100 text-slate-500 text-[10px] px-2 py-1 rounded font-bold">بدون درخواست تماس</span>`;
+                    ? `<span class="bg-emerald-100 text-emerald-700 text-[10px] px-3 py-1.5 rounded-lg font-bold"><i class="fa-solid fa-phone-volume ml-1"></i>متقاضی تماس و گفتگو</span>`
+                    : `<span class="bg-slate-100 text-slate-500 text-[10px] px-3 py-1.5 rounded-lg font-bold">بدون درخواست تماس</span>`;
 
-                let actsHtml = '';
-                if(c.mainActs.length > 0) {
-                    actsHtml += `<div class="w-full text-[10px] font-bold text-emerald-600 mb-1 mt-2 uppercase">اقدامات اصلی</div>`;
-                    c.mainActs.forEach(a => actsHtml += `<span class="inline-block bg-emerald-50 text-emerald-700 text-[11px] px-2 py-1 rounded border border-emerald-100 m-1">${a}</span>`);
-                }
-                if(c.suppActs.length > 0) {
-                    actsHtml += `<div class="w-full text-[10px] font-bold text-blue-600 mb-1 mt-2 uppercase">اقدامات تکمیلی</div>`;
-                    c.suppActs.forEach(a => actsHtml += `<span class="inline-block bg-blue-50 text-blue-700 text-[11px] px-2 py-1 rounded border border-blue-100 m-1">${a}</span>`);
-                }
-
-                let obsHtml = '';
-                c.obstacles.split(',').forEach(o => { if(o.trim()) obsHtml += `<span class="inline-block bg-rose-50 text-rose-700 text-[11px] px-2 py-1 rounded border border-rose-100 m-1">${o.trim()}</span>`; });
-                if(c.obstaclesOther) obsHtml += `<span class="inline-block bg-red-50 text-red-700 text-[11px] px-2 py-1 rounded border border-red-100 m-1 font-bold">سایر: ${c.obstaclesOther}</span>`;
+                let mActsHtml = c.mainActs.map(a => `<span class="inline-block bg-emerald-50 text-emerald-700 text-[11px] px-2 py-1 rounded border border-emerald-100 m-0.5">${a}</span>`).join('');
+                let sActsHtml = c.suppActs.map(a => `<span class="inline-block bg-blue-50 text-blue-700 text-[11px] px-2 py-1 rounded border border-blue-100 m-0.5">${a}</span>`).join('');
+                
+                let obsHtml = c.obstacles.split(',').filter(o=>o.trim() && o.trim() !== '-').map(o => `<span class="inline-block bg-rose-50 text-rose-700 text-[11px] px-2 py-1 rounded border border-rose-100 m-0.5">${o.trim()}</span>`).join('');
+                if(c.obstaclesOther) obsHtml += `<span class="inline-block bg-red-50 text-red-700 text-[11px] px-2 py-1 rounded border border-red-100 m-0.5 font-bold">سایر: ${c.obstaclesOther.replace(/"/g, '')}</span>`;
 
                 const suggHtml = c.suggestions 
                     ? `<div class="bg-amber-50 border-r-4 border-amber-400 p-4 rounded-l-lg text-sm text-amber-900 leading-relaxed font-medium mt-4"><i class="fa-solid fa-comment-dots text-amber-500 ml-2"></i>${c.suggestions}</div>`
@@ -537,39 +605,41 @@
 
                 list.innerHTML += `
                 <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
-                    <summary class="cursor-pointer p-5 font-black text-slate-700 flex justify-between items-center bg-white group-open:bg-emerald-50/50 transition-colors">
+                    <summary class="cursor-pointer p-4 font-black text-slate-700 flex justify-between items-center bg-white group-open:bg-slate-50 transition-colors">
                         <div class="flex items-center gap-4">
-                            <span class="text-lg">${c.name}</span>
-                            <span class="text-[10px] px-2 py-1 rounded-full border ${scoreColor} font-bold shadow-sm">امتیاز: ${c.score}</span>
+                            <span class="text-base sm:text-lg">${c.name}</span>
+                            <span class="text-[10px] sm:text-xs px-3 py-1 rounded-full border ${scoreColor} font-bold shadow-sm">امتیاز: ${c.score}</span>
                         </div>
                         <i class="fa-solid fa-chevron-down transition-transform group-open:rotate-180 text-slate-400"></i>
                     </summary>
-                    <div class="p-6 border-t border-slate-100 space-y-6 bg-white">
+                    <div class="p-5 border-t border-slate-100 space-y-5 bg-white">
                         
-                        <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-slate-100">
+                        <div class="flex justify-between items-center bg-slate-50 p-3 rounded-xl border border-slate-100">
                             <span class="text-xs font-bold text-slate-500">وضعیت گفتگوی تکمیلی:</span>
                             ${callStatusInside}
                         </div>
 
-                        <div class="grid md:grid-cols-2 gap-6">
+                        <div class="grid md:grid-cols-2 gap-5">
                             <div>
-                                <h4 class="text-[10px] font-bold text-slate-400 mb-2 uppercase tracking-wider">فعالیت‌های انجام شده</h4>
-                                <div class="flex flex-wrap">${actsHtml || '<span class="text-xs text-slate-400">بدون اقدام ثبت شده</span>'}</div>
+                                <h4 class="text-[10px] font-bold text-emerald-600 mb-1.5 uppercase tracking-wider">اقدامات اصلی</h4>
+                                <div class="flex flex-wrap">${mActsHtml || '<span class="text-xs text-slate-400">بدون اقدام</span>'}</div>
+                                <h4 class="text-[10px] font-bold text-blue-600 mt-3 mb-1.5 uppercase tracking-wider">اقدامات تکمیلی</h4>
+                                <div class="flex flex-wrap">${sActsHtml || '<span class="text-xs text-slate-400">بدون اقدام</span>'}</div>
                             </div>
                             <div>
-                                <h4 class="text-[10px] font-bold text-rose-400 mb-2 uppercase tracking-wider">موانع و چالش‌ها</h4>
-                                <div class="flex flex-wrap">${obsHtml || '<span class="text-xs text-slate-400">بدون مانع ثبت شده</span>'}</div>
+                                <h4 class="text-[10px] font-bold text-rose-500 mb-1.5 uppercase tracking-wider">موانع و چالش‌ها</h4>
+                                <div class="flex flex-wrap">${obsHtml || '<span class="text-xs text-slate-400">بدون مانع</span>'}</div>
                             </div>
                         </div>
 
-                        <div class="grid md:grid-cols-2 gap-6 pt-4 border-t border-slate-50">
+                        <div class="grid md:grid-cols-2 gap-5 pt-4 border-t border-slate-50">
                             <div>
-                                <h4 class="text-[10px] font-bold text-slate-400 mb-2 uppercase">بازخورد دریافت ایده‌ها و اقلام</h4>
-                                <p class="text-sm text-slate-700 bg-slate-50 p-3 rounded-lg border border-slate-100 leading-relaxed font-medium">${c.futureSupport}</p>
+                                <h4 class="text-[10px] font-bold text-slate-400 mb-1.5 uppercase">دریافت ایده‌ها و اقلام</h4>
+                                <p class="text-xs text-slate-700 bg-slate-50 p-2.5 rounded-lg border border-slate-100 font-medium">${mapLabel(c.futureSupport)}</p>
                             </div>
                             <div>
-                                <h4 class="text-[10px] font-bold text-slate-400 mb-2 uppercase">تعامل با مدارس</h4>
-                                <p class="text-sm text-slate-700 bg-slate-50 p-3 rounded-lg border border-slate-100 leading-relaxed font-medium">${c.schoolPlan}</p>
+                                <h4 class="text-[10px] font-bold text-slate-400 mb-1.5 uppercase">تعامل با مدارس</h4>
+                                <p class="text-xs text-slate-700 bg-slate-50 p-2.5 rounded-lg border border-slate-100 font-medium">${mapLabel(c.schoolPlan)}</p>
                             </div>
                         </div>
 
@@ -580,13 +650,10 @@
             });
         }
 
-        // Search Events
+        // Filtering and Searching Events
         const searchInput = document.getElementById('cinema-search');
-        searchInput.addEventListener('input', e => {
-            renderProfiles(e.target.value);
-        });
+        searchInput.addEventListener('input', e => renderProfiles(e.target.value));
 
-        // Filter Buttons
         document.getElementById('filter-all').addEventListener('click', (e) => {
             currentFilter = 'all';
             document.getElementById('filter-all').classList.add('active', 'bg-emerald-500', 'text-white');
@@ -601,10 +668,10 @@
             renderProfiles(searchInput.value);
         });
 
-        // Initial Render
+        // Init Profiles
         renderProfiles();
 
-        // Intersection Observer for scroll animations
+        // Scroll Intersection Observers
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
